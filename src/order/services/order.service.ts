@@ -46,11 +46,7 @@ export class OrderService {
     const orderId = dbOrder.id;
     orderInputDto.items.forEach(async (orderItem) => {
       const orderItemEntity = Object.assign(new OrderItemEntity(), {
-        product: await this.productService.findProductById(orderItem.productId),
-        order: dbOrder,
-        quantity: orderItem.quantity,
-        price: orderItem.price,
-        raw_total: orderItem.raw_total,
+        product: await this.productService.findProductById(orderItem.productId),        order: dbOrder,        quantity: orderItem.quantity,        price: orderItem.price,        raw_total: orderItem.raw_total,
       });
       const orderItemDb = await this.orderItemRepository.save(orderItemEntity);
       this.logger.log('OrderItem created :' + JSON.stringify(orderItemDb));
