@@ -9,7 +9,7 @@ async function bootstrap() {
   const APP_NAME = process.env.APP_NAME;
   const APP_VERSION = process.env.APP_VERSION;
 
-  console.log('Running ' + APP_NAME + ' -v' + APP_VERSION);
+  console.log('Running TEST' + APP_NAME + ' -v' + APP_VERSION);
 
   const options = new DocumentBuilder()
     .setTitle(APP_NAME)
