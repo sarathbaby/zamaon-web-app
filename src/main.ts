@@ -29,8 +29,14 @@ run migration: npm run typeorm migration:run
 npm run start:dev
 
 github:
+create new branch: git checkout -b dev_branch
+setting upstream repo: git remote add https://github.com/sarathbaby/zamaon-web-app
 commit all changes: git add -A && git commit -m "changes"
-push to main branch:git push -u -f origin main
+push to forked branch: git push -u -f origin dev_branch
+
+**Create and handle Pull requests
+
+Syncing local repo with upstream: git stash
 */
 }
 bootstrap();
