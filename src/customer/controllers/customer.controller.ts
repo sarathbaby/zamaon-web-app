@@ -25,7 +25,7 @@ export class CustomerController {
   @ApiOkResponse({
     description: 'Create customer',
   })
-  @ApiNotFoundResponse({ description: 'Create Customer request failed' })
+  @ApiNotFoundResponse({ description: 'Create Customer-POST request failed' })
   @ApiInternalServerErrorResponse({
     description: 'Internal server error',
   })
