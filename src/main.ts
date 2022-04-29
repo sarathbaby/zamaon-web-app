@@ -23,14 +23,14 @@ async function bootstrap() {
 
   /*
 steps for migration:
-npx typeorm migration:generate -n dB
-npm run build
-npm run typeorm migration:run
+get auto generated migration script:npx typeorm migration:generate -n dB
+build project: npm run build
+run migration: npm run typeorm migration:run
 npm run start:dev
 
 github:
-git add -A && git commit -m "changes"
-git push -u -f origin main
+commit all changes: git add -A && git commit -m "changes"
+push to main branch:git push -u -f origin main
 */
 }
 bootstrap();
