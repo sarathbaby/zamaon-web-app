@@ -23,9 +23,9 @@ export class CustomerController {
   @ApiTags('customer')
   //@ApiBody({ type: Customer.class })
   @ApiOkResponse({
-    description: 'Get customer',
+    description: 'Create customer',
   })
-  @ApiNotFoundResponse({ description: 'Customer GET request failed' })
+  @ApiNotFoundResponse({ description: 'Create Customer request failed' })
   @ApiInternalServerErrorResponse({
     description: 'Internal server error',
   })
