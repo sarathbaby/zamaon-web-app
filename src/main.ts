@@ -37,6 +37,7 @@ push to forked branch: git push -u -f origin dev_branch
 **Create and handle Pull requests
 
 Syncing local repo with upstream: git stash
+**Updates will be synced
 */
 }
 bootstrap();
