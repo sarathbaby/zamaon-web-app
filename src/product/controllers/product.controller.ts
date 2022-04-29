@@ -1,4 +1,12 @@
-import { Body, Controller, forwardRef, Get, Inject, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  forwardRef,
+  Get,
+  Inject,
+  Param,
+  Post,
+} from '@nestjs/common';
 import {
   ApiInternalServerErrorResponse,
   ApiNotFoundResponse,
@@ -13,7 +21,8 @@ import { ProductService } from '../services/product.service';
 export class ProductController {
   constructor(
     @Inject(forwardRef(() => ProductService))
-    private readonly productService: ProductService) {}
+    private readonly productService: ProductService,
+  ) {}
 
   @ApiTags('product')
   //@ApiBody({ type: Customer.class })

@@ -6,7 +6,7 @@ import { OrderService } from './order.service';
 
 class OrderServiceMock {
   createOrder(dto: any) {
-     return [];
+    return [];
   }
   getAllOrders() {
     return [];
@@ -15,7 +15,7 @@ class OrderServiceMock {
     return [];
   }
   getAllOrderItems() {
-    return []
+    return [];
   }
   editOrder() {
     return [];
@@ -41,7 +41,7 @@ describe('testing OrderService', () => {
     const OrderServiceProvider = {
       provide: OrderService,
       useClass: OrderServiceMock,
-    }
+    };
     const CustomerServiceProvider = {
       provide: CustomerService,
       useClass: CustomerServiceMock,
@@ -52,7 +52,12 @@ describe('testing OrderService', () => {
     };
 
     const module: TestingModule = await Test.createTestingModule({
-      providers: [OrderService, OrderServiceProvider, CustomerServiceProvider, ProductServiceProvider],
+      providers: [
+        OrderService,
+        OrderServiceProvider,
+        CustomerServiceProvider,
+        ProductServiceProvider,
+      ],
     }).compile();
 
     service = module.get<OrderService>(OrderService);
@@ -89,12 +94,11 @@ describe('testing OrderService', () => {
   });
 
   it('should call editOrder method with expected params', async () => {
-    const orderId=1;
-    const dto = new OrderInputDto;
+    const orderId = 1;
+    const dto = new OrderInputDto();
     const editOrderSpy = jest.spyOn(service, 'editOrder');
     service.editOrder(orderId, dto);
     expect(editOrderSpy).toHaveBeenCalled();
     expect(editOrderSpy).toHaveBeenCalledWith(orderId, dto);
   });
-
 });

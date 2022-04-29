@@ -15,8 +15,8 @@ export class CustomerService {
     private readonly customerRepository: Repository<CustomerEntity>,
   ) {}
 
-  getHello() : string {
-    return "Hello World!";
+  getHello(): string {
+    return 'Hello World!';
   }
 
   createCustomer(createCustomerDto: CreateCustomerDto): Observable<any> {
@@ -34,7 +34,7 @@ export class CustomerService {
     return from(this.customerRepository.find());
   }
 
-  async findCustomerById(custId: number) : Promise<CustomerEntity> {
+  async findCustomerById(custId: number): Promise<CustomerEntity> {
     const customer = await this.customerRepository.findOne(custId);
     if (customer) {
       this.logger.log('findCustomerById executed for id=' + custId);

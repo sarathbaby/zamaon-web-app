@@ -13,13 +13,13 @@ describe('ProductController', () => {
       useFactory: () => ({
         createProduct: jest.fn(() => []),
         findAll: jest.fn(() => []),
-        findProductById: jest.fn(() => { })
-      })
-    }
+        findProductById: jest.fn(() => {}),
+      }),
+    };
 
     const module: TestingModule = await Test.createTestingModule({
       controllers: [ProductController],
-      providers: [ProductService, ProductServiceProvider]
+      providers: [ProductService, ProductServiceProvider],
     }).compile();
 
     controller = module.get<ProductController>(ProductController);
@@ -30,22 +30,22 @@ describe('ProductController', () => {
     expect(controller).toBeDefined();
   });
 
-  it("calling create method", () => {
+  it('calling create method', () => {
     const dto = new CreateProductDto();
     controller.create(dto);
     expect(service.createProduct).toHaveBeenCalled();
     expect(service.createProduct).toHaveBeenCalledWith(dto);
-  })
+  });
 
-  it("calling getAll Products method", () => {
+  it('calling getAll Products method', () => {
     controller.getAll();
     expect(service.findAll).toHaveBeenCalled();
-  })
+  });
 
-  it("calling find fetchProductById method", () => {
-    const prodId=1;
+  it('calling find fetchProductById method', () => {
+    const prodId = 1;
     controller.fetchProductById(prodId);
     expect(service.findProductById).toHaveBeenCalled();
     expect(service.findProductById).toHaveBeenCalledWith(prodId);
-  })
+  });
 });

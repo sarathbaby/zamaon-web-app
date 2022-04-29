@@ -3,34 +3,31 @@ import { CreateCustomerDto } from '../dto/Create-Customer.dto';
 import { CustomerService } from '../services/customer.service';
 
 class CustomerServiceMock {
-    createCustomer(dto: any) {
-       return [];
-    }
-    getAllCustomers() {
-      return [];
-    }
-    findCustomerById(id: number) {
-      return [];
-    }
+  createCustomer(dto: any) {
+    return [];
   }
+  getAllCustomers() {
+    return [];
+  }
+  findCustomerById(id: number) {
+    return [];
+  }
+}
 
 describe('testing CustomerService', () => {
   let service: CustomerService;
 
   beforeEach(async () => {
     const CustomerServiceProvider = {
-        provide: CustomerService,
-        useClass: CustomerServiceMock,
-      }
+      provide: CustomerService,
+      useClass: CustomerServiceMock,
+    };
 
     const module: TestingModule = await Test.createTestingModule({
-        providers: [
-            CustomerService, CustomerServiceProvider
-      ]
+      providers: [CustomerService, CustomerServiceProvider],
     }).compile();
 
     service = module.get<CustomerService>(CustomerService);
-
   });
 
   it('should call createCustomer method with expected params', async () => {
@@ -52,6 +49,4 @@ describe('testing CustomerService', () => {
     service.findCustomerById(custId);
     expect(findCustomerByIdSpy).toHaveBeenCalledWith(custId);
   });
-  
-  
 });

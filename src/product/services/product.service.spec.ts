@@ -5,7 +5,7 @@ import { ProductService } from './product.service';
 
 class ProductServiceMock {
   createProduct(dto: any) {
-     return [];
+    return [];
   }
   findAll() {
     return [];
@@ -22,7 +22,7 @@ describe('ProductService', () => {
     const ProductServiceProvider = {
       provide: ProductService,
       useClass: ProductServiceMock,
-    }
+    };
 
     const module: TestingModule = await Test.createTestingModule({
       providers: [ProductService, ProductServiceProvider],
@@ -54,5 +54,4 @@ describe('ProductService', () => {
     service.findProductById(prodId);
     expect(findProductByIdSpy).toHaveBeenCalledWith(prodId);
   });
-
 });

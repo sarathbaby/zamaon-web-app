@@ -1,4 +1,13 @@
-import { Body, Controller, forwardRef, Get, Inject, Param, Post, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  forwardRef,
+  Get,
+  Inject,
+  Param,
+  Post,
+  Put,
+} from '@nestjs/common';
 import {
   ApiBody,
   ApiInternalServerErrorResponse,
@@ -14,10 +23,11 @@ import { OrderService } from '../services/order.service';
 export class OrderController {
   constructor(
     @Inject(forwardRef(() => OrderService))
-    private readonly orderService: OrderService) {}
+    private readonly orderService: OrderService,
+  ) {}
 
   @ApiTags('order')
-  @ApiBody({ type:  OrderInputDto})
+  @ApiBody({ type: OrderInputDto })
   @ApiOkResponse({
     description: 'Create order',
   })

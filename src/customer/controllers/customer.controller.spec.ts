@@ -11,44 +11,48 @@ describe('testing CustomerController', () => {
     const CustomerServiceProvider = {
       provide: CustomerService,
       useFactory: () => ({
-        createCustomer: jest.fn(() => []),
-        getAllCustomers: jest.fn(() => []),
-        findCustomerById: jest.fn(() => { })
-      })
-    }
+        createCustomer: jest.fn(() => {
+          [];
+        }),
+        getAllCustomers: jest.fn(() => {
+          [];
+        }),
+        findCustomerById: jest.fn(() => {
+          [];
+        }),
+      }),
+    };
 
-    const module: TestingModule = await Test.createTestingModule({ 
-        controllers : [CustomerController],
-        providers: [CustomerService, CustomerServiceProvider]
+    const module: TestingModule = await Test.createTestingModule({
+      controllers: [CustomerController],
+      providers: [CustomerService, CustomerServiceProvider],
     }).compile();
 
     service = module.get<CustomerService>(CustomerService);
     controller = module.get<CustomerController>(CustomerController);
-
   });
 
-  it("calling create-Customer method", () => {
+  it('calling create-Customer method', () => {
     const dto = new CreateCustomerDto();
     expect(controller.create(dto)).not.toEqual(null);
-  })
+  });
 
-  it("calling create-Customer method", () => {
+  it('calling create-Customer method', () => {
     const dto = new CreateCustomerDto();
     controller.create(dto);
     expect(service.createCustomer).toHaveBeenCalled();
     expect(service.createCustomer).toHaveBeenCalledWith(dto);
-  })
+  });
 
-  it("calling getAllCustomersCont method", () => {
+  it('calling getAllCustomersCont method', () => {
     controller.getAllCustomersCont();
     expect(service.getAllCustomers).toHaveBeenCalled();
-  })
+  });
 
-  it("calling find getCustById method", () => {
-    const custId=1;
+  it('calling find getCustById method', () => {
+    const custId = 1;
     controller.getCustById(custId);
     expect(service.findCustomerById).toHaveBeenCalled();
     expect(service.findCustomerById).toHaveBeenCalledWith(custId);
-  })
-
+  });
 });

@@ -1,4 +1,14 @@
-import { Body, Controller, forwardRef, Get, HttpCode, HttpStatus, Inject, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  forwardRef,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Inject,
+  Param,
+  Post,
+} from '@nestjs/common';
 import {
   ApiInternalServerErrorResponse,
   ApiNotFoundResponse,
@@ -13,12 +23,13 @@ import { CustomerService } from '../services/customer.service';
 export class CustomerController {
   constructor(
     @Inject(forwardRef(() => CustomerService))
-    private readonly customerService: CustomerService) {}
+    private readonly customerService: CustomerService,
+  ) {}
 
-    @Get()
-    getDefault() {
-      return this.customerService.getHello();
-    }
+  @Get()
+  getDefault() {
+    return this.customerService.getHello();
+  }
 
   @ApiTags('customer')
   //@ApiBody({ type: Customer.class })
