@@ -27,6 +27,10 @@
     "typeorm:migrate": "npm run typeorm migration:generate -- -n",
     "typeorm:run": "npm run typeorm migration:run"
   },
+  "pre-commit": [
+    "test",
+    "lint"
+  ],
   "dependencies": {
     "@nestjs/axios": "^0.0.7",
     "@nestjs/common": "^8.0.0",
@@ -91,11 +95,6 @@
     ],
     "moduleNameMapper": {
       "^src/(.*)$": "<rootDir>/$1"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "prettier --write . && git add -A ."
     }
   }
 }
