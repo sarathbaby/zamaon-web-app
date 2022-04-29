@@ -27,6 +27,10 @@ npx typeorm migration:generate -n dB
 npm run build
 npm run typeorm migration:run
 npm run start:dev
+
+github:
+git add -A && git commit -m "changes"
+git push -u -f origin main
 */
 }
 bootstrap();
